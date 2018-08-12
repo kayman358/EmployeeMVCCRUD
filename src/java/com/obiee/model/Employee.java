@@ -5,18 +5,35 @@
  */
 package com.obiee.model;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 
 /**
  *
  * @author TN041502
  */
-
-public class Employee {
+@Entity
+@Table(name = "EmployeeTable")
+public class Employee implements Serializable {
+    
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
     private int id;
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @Column
     private String jobRole;
+    @Column
     private double salary;
 
     public int getId() {
